@@ -1,0 +1,60 @@
+{
+  "name": "tricinel",
+  "version": "1.0.0",
+  "description": "A personal card for Bogdan Lazar (@tricinel)",
+  "main": "bin/index.js",
+  "bin": {
+    "tricinel": "./bin/index.js"
+  },
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "format": "prettier --write \"./src/**/*.js\"",
+    "build": "node src/build.js",
+    "develop": "yarn build && node ./bin/index.js",
+    "develop:watch": "nodemon ./src/index.js --exec 'yarn develop'",
+    "prepublish": "yarn build"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "bin"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:tricinel/npmcard.git"
+  },
+  "keywords": [
+    "card",
+    "npm",
+    "npm card",
+    "npx",
+    "npx card",
+    "business card"
+  ],
+  "files": [
+    "bin"
+  ],
+  "author": "Bogdan Lazar <bogdan@bogdanlazar.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tricinel/npmcard/issues"
+  },
+  "homepage": "https://github.com/tricinel/npmcard",
+  "devDependencies": {
+    "boxen": "^4.1.0",
+    "chalk": "^3.0.0",
+    "eslint": "^6.5.1",
+    "eslint-config-frontwerk": "^1.0.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.7",
+    "lint-staged": "^9.4.1",
+    "nodemon": "^2.0.0",
+    "precise-commits": "^1.0.2",
+    "prettier": "^1.18.2",
+    "ramda": "^0.26.1"
+  },
+  "engines": {
+    "node": ">= 6"
+  }
+}
