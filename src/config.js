@@ -10,30 +10,22 @@ const boxenOptions = {
 
 // The output file path where we will have the CLI output
 const outputFilePath = path.join(process.cwd(), 'bin/output');
+const indexHtmlFilePath = path.join(process.cwd(), 'bin/index.html');
 
 const newline = '\n';
 const maxSpaces = 8;
 
 // Generate a bunch of empty spaces
 // e.g. spaces(3) will get you `'   '` = 3 empty spaces
-const spaces = compose(
-  join(''),
-  repeat(' ')
-);
+const spaces = compose(join(''), repeat(' '));
 
 // Count how many spaces to apply based on the length of the word and maxSpaces
 // e.g. countSpaces('npm') will get you `maxSpaces - 'npm'.length` = 8 - 3 = 5
 // This is fed into spaces to get you the correct number of spaces to apply before a word inside the card
-const countSpaces = compose(
-  subtract(maxSpaces),
-  len
-);
+const countSpaces = compose(subtract(maxSpaces), len);
 
-const label = v => ({
-  before: compose(
-    spaces,
-    countSpaces
-  )(v),
+const label = (v) => ({
+  before: compose(spaces, countSpaces)(v),
   color: 'gray',
   value: `${v}:`,
   after: ' '
@@ -125,4 +117,10 @@ const rows = [
   }
 ];
 
-module.exports = { rows, outputFilePath, boxenOptions, newline };
+module.exports = {
+  rows,
+  outputFilePath,
+  boxenOptions,
+  newline,
+  indexHtmlFilePath
+};
